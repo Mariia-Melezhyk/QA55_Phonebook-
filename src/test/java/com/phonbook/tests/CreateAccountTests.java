@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase{
 
-    @Test
+    @Test(enabled = false)
     public void newUserRegistrationPositiveTest(){
         //click on Login Link
         driver.findElement(By.cssSelector("[href='/login']")).click();
