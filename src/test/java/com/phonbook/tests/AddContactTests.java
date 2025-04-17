@@ -10,27 +10,27 @@ public class AddContactTests extends TestBase{
     //login
     @BeforeMethod
     public void precondition(){
-        app.clickOnLoginLink();
-        app.fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
-        app.clickOnLoginButton();
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
+        app.getUser().clickOnLoginButton();
     }
     @Test
     public void addContactPositiveTest(){
-        app.clickOnAddLink();
-        app.fillContactForm(new Contact()
+        app.getContact().clickOnAddLink();
+        app.getContact().fillContactForm(new Contact()
                 .setName("Oliver")
                 .setLastName("Adam")
                 .setPhone("01234567890")
                 .setEmail("Karl@gmail.com")
                 .setAddress("Rishon")
                 .setDescription("QA"));
-        app.clickOnSaveButton();
-        Assert.assertTrue(app.isContactAdded("Oliver"));
+        app.getContact().clickOnSaveButton();
+        Assert.assertTrue(app.getContact().isContactAdded("Oliver"));
     }
 
     @AfterMethod
     public void postCondition(){
-        app.deleteContact();
+        app.getContact().deleteContact();
 
     }
 

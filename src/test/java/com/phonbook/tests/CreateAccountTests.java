@@ -10,18 +10,18 @@ public class CreateAccountTests extends TestBase{
     @Test(enabled = false)
     public void newUserRegistrationPositiveTest(){
         //int i=(int)((System.currentTimeMillis()/1000)%3600);
-        app.clickOnLoginLink();
-        app.fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
-        app.clickOnRegistrationButton();
-        Assert.assertTrue(app.isSignOutButtonPresent());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
+        app.getUser().clickOnRegistrationButton();
+        Assert.assertTrue(app.getUser().isSignOutButtonPresent());
     }
     @Test
     public void existedUserRegistrationNegatineTest(){
-        app.clickOnLoginLink();
-        app.fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
-        app.clickOnRegistrationButton();
-        softAssert.assertTrue(app.isAlertDisplayed());
-        softAssert.assertTrue(isErrorMessagePresent());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
+        app.getUser().clickOnRegistrationButton();
+        softAssert.assertTrue(app.getUser().isAlertDisplayed());
+        softAssert.assertTrue(app.getUser().isErrorMessagePresent());
         softAssert.assertAll();
     }
 

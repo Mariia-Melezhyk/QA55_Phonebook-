@@ -1,5 +1,6 @@
 package com.phonbook.tests;
 
+import com.phonebook.fw.ApplicationManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

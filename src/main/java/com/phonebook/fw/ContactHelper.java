@@ -1,11 +1,16 @@
-package com.phonbook.tests;
+package com.phonebook.fw;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class ContactHelper extends BaseHelper {
+    public ContactHelper(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickOnSaveButton() {
         click(By.cssSelector(".add_form__2rsm2 button"));
     }
