@@ -1,10 +1,19 @@
 package com.phonbook.tests;
 
+import com.phonebook.models.User;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class CreateAccountTests extends TestBase{
+    @BeforeMethod
+            public void ensurePrecondition(){
+        if(!app.getUser().isLoginLinkPresent()){
+            app.getUser().clickOnSignOutButton();
+
+        }
+    }
 
     SoftAssert softAssert=new SoftAssert();
     @Test(enabled = false)

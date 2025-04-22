@@ -1,5 +1,7 @@
 package com.phonbook.tests;
 
+import com.phonebook.models.Contact;
+import com.phonebook.models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,6 +12,10 @@ public class AddContactTests extends TestBase{
     //login
     @BeforeMethod
     public void precondition(){
+
+        if(!app.getUser().isLoginLinkPresent()){
+            app.getUser().clickOnSignOutButton();
+        }
         app.getUser().clickOnLoginLink();
         app.getUser().fillRegisterLoginForm(new User().setEmail("noa@gmail.com").setPassword("Nnoa12345$"));
         app.getUser().clickOnLoginButton();
