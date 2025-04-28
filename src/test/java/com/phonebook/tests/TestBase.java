@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.Method;
+import java.sql.Array;
+import java.util.Arrays;
 
 public class TestBase {
 
@@ -32,8 +34,8 @@ public class TestBase {
     }
 
     @BeforeMethod
-    public void startTest(Method method){
-        logger.info("Start test"+method.getName());
+    public void startTest(Method method,Object[] p){
+        logger.info("Start test"+method.getName()+ Arrays.asList(p));
     }
     @AfterMethod
     public void stopTest(ITestResult result){
